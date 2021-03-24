@@ -12,13 +12,19 @@ class Venue
   end
 
   def yell_at_patrons
-    patrons.map do |patron|
+    @patrons.map do |patron|
       patron.upcase
     end
   end
 
   def over_capacity?
-    capacity < patrons.length
+    @capacity < @patrons.length
+  end
+
+  def kick_out
+    while over_capacity?
+      @patrons.pop
+    end
   end
 
 end

@@ -78,3 +78,21 @@ end
       expect(venue.over_capacity?).to eq(false)
     end
   end
+
+  # Iteration 4 - My Tests
+
+  describe 'kick_out' do
+    it 'removes patrons until the venue is no longer over capacity' do
+      venue = Venue.new('Bluebird', 4)
+      venue.add_patron('Donna')
+      venue.add_patron('Lesley')
+      venue.add_patron('Ron')
+      venue.add_patron('Ann')
+      patrons_at_capacity = venue.patrons
+      venue.add_patron('Tom')
+
+      venue.kick_out
+
+      expect(venue.patrons).to eq(patrons_at_capacity)
+    end
+  end
