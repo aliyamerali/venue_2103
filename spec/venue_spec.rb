@@ -53,3 +53,28 @@ describe Venue do
     end
   end
 end
+
+# Iteration 3 - My Tests
+
+  describe '#over_capacity?' do
+    it 'returns true if the venue has more patrons that capacity' do
+      venue = Venue.new('Bluebird', 4)
+      venue.add_patron('Donna')
+      venue.add_patron('Lesley')
+      venue.add_patron('Ron')
+      venue.add_patron('Ann')
+      venue.add_patron('Tom')
+
+      expect(venue.over_capacity?).to eq(true)
+    end
+
+    it 'returns false if the venue has fewer patrons than capacity' do
+      venue = Venue.new('Bluebird', 4)
+      venue.add_patron('Donna')
+      venue.add_patron('Lesley')
+      venue.add_patron('Ron')
+      venue.add_patron('Ann')
+
+      expect(venue.over_capacity?).to eq(false)
+    end
+  end

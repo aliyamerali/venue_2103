@@ -17,4 +17,8 @@ class Venue
     end
   end
 
+  def over_capacity?
+    capacity < patrons.length
+  end
+
 end
